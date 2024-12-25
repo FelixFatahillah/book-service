@@ -1,0 +1,71 @@
+version: '2.2'
+services:
+  user-service:
+    container_name: user-service
+    image: felixajaa/user-service:latest
+    env_file:
+      - env/user-service
+    environment:
+      - PORT_SERVER=5001
+      - PORT_GRPC=6001
+    ports:
+      - 6001:6001
+    restart: unless-stopped
+  author-service:
+    container_name: author-service
+    image: felixajaa/author-service:latest
+    env_file:
+      - env/author-service
+    environment:
+      - PORT_SERVER=5002
+      - PORT_GRPC=6002
+    ports:
+      - 6002:6002
+    restart: unless-stopped
+  category-service:
+    container_name: category-service
+    image: felixajaa/category-service:latest
+    env_file:
+      - env/category-service
+    environment:
+      - PORT_SERVER=5003
+      - PORT_GRPC=6003
+    ports:
+      - 6003:6003
+    restart: unless-stopped
+  book-service:
+    container_name: book-service
+    image: felixajaa/book-service:latest
+    env_file:
+      - env/book-service
+    environment:
+      - PORT_SERVER=5004
+      - PORT_GRPC=6004
+    ports:
+      - 6004:6004
+    restart: unless-stopped
+  postgres:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: redis_container
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

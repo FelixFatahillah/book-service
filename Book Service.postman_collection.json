@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "bd3a4fd6-2111-432a-b38e-84838fec9fb1",
+		"name": "Book Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13698264"
+	},
+	"item": [
+		{
+			"name": "Private",
+			"item": [
+				{
+					"name": "Loan",
+					"item": [
+						{
+							"name": "Loan",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_name\": \"aldi\",\r\n    \"loan_date\": \"2024-12-23T23:50:35.717796+07:00\",\r\n    \"return_date_schedule\": \"2024-12-27T23:50:35.717796+07:00\",\r\n    \"book_id\": \"1451823f-27a7-4573-aa00-4465ed51262e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/v1/private/books/loan"
+							},
+							"response": []
+						},
+						{
+							"name": "Return",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"loan_id\": \"2f95e4ad-9c71-4ab5-8579-c7400854aa9c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/v1/private/books/return"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"judulnya gak jelas\",\r\n    \"genre\": \"metal\",\r\n    \"stock\": 10,\r\n    \"published\": \"2024-12-23T23:50:35.717796+07:00\",\r\n    \"author_id\": \"b03066be-b3b3-4190-baba-f9a257c0e163\",\r\n    \"category_id\": \"abee0fd5-2b7f-4713-b306-6b055cd3f34c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/v1/private/books"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/v1/private/books"
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/private/books/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e3792f08-3258-41ed-ac73-7b205c6ae6f0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/private/books/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"prayoga\",\r\n    \"last_name\": \"nurdianto\",\r\n    \"phone_number\": \"6281234556678\",\r\n    \"email\": \"yoga@yopmail.com\",\r\n    \"password\": \"password123\",\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/private/books/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"private",
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e3792f08-3258-41ed-ac73-7b205c6ae6f0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHlvcG1haWwuY29tIiwiZXhwIjoxNzM1MTc4NDI0LCJmaXN0X25hbWUiOiJBZG1pbiIsImlhdCI6MTczNTEzNTIyNCwicm9sZSI6ImFkbWluIiwic3ViIjoiYzc2ZWQ2Y2MtNGFlZC00Y2M3LWJhOTktZmMzMmE3OWFlY2FiIn0.CkOyQ2QqLYDv01Kly723Qbs7dDcFP2cYKLyE8TT5FhU"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8085",
+			"type": "string"
+		}
+	]
+}

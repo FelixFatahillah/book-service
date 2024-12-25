@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = './internal/infrastructure/pb';
+
+message GetCategoryByIdRequest {
+  string id = 1;
+}
+
+message GetCategoryByIdResponse {
+  string category = 1;
+  string description = 2;
+}
+
+service CategoryService{
+  rpc GetCategoryById(GetCategoryByIdRequest) returns (GetCategoryByIdResponse) {}
+}
